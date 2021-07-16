@@ -4,7 +4,7 @@
   - [Installing creating a project](#installing-creating-a-project)
   - [Installing Dependencies](#installing-dependencies)
   - [About Redux](#about-redux)
-    - [?](#)
+    - [? about it](#-about-it)
 
 ## Installing creating a project
 
@@ -25,7 +25,7 @@ In a normal Redux project, it is a worth the time to think about the Design of y
 
 _In TS Project, I **really** recommend you think about design first._
 
-### ?
+### ? about it
 
 1. We are _fetching_ **packages** from NPM.
 2. We are going to call NPM packages _repositories_
