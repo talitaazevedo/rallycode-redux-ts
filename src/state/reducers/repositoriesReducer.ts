@@ -7,10 +7,14 @@ interface RepositoriesState {
   data: string[];
 }
 
-//some kind like  a object
+const initialState = {
+  loading: false,
+  error: null,
+  data: [],
+};
 
 const reducer = (
-  state: RepositoriesState,
+  state: RepositoriesState = initialState,
   action: Action,
 ): RepositoriesState => {
   // if (action.type === 'search_repositories_success') {

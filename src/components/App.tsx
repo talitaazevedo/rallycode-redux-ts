@@ -6,7 +6,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <div>
-        <h1>Search fro a package</h1>
+        <h1>Search from a package</h1>
         <RepositoriesList />
       </div>
     </Provider>

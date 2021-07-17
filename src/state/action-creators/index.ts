@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { async } from 'q';
+
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
 import { Dispatch } from 'redux';
