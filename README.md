@@ -8,6 +8,7 @@
   - [Redux Setup](#redux-setup)
     - [repositoriesReducers.ts](#repositoriesreducersts)
     - [Types](#types)
+  - [RepositoriesList](#repositorieslist)
 
 ---
 
@@ -99,3 +100,62 @@ interface RepositoriesState {
 ---
 
 > Remember if you use typescript the type any is _bad_, you really need to try to configure it output.
+
+---
+
+## RepositoriesList
+
+> This is the actually content of our folder structure.
+
+```bash
+src/
+├── components
+│   ├── App.tsx
+│   └── RepositoriesList.tsx
+├── index.tsx
+├── react-app-env.d.ts
+└── state
+    ├── action-creators
+    │   └── index.ts
+    ├── actions
+    │   └── index.ts
+    ├── action-types
+    │   └── index.ts
+    ├── index.ts
+    ├── reducers
+    │   ├── index.ts
+    │   └── repositoriesReducer.ts
+    └── store.ts
+
+```
+
+On the Repositories list we created a new JSX component, with the content below `<div> <form> <input/> <button>`
+
+```typescript
+<div>
+  <form onSubmit={onSubmit}>
+    <input value={term} onChange={(e) => setTerm(e.target.value)} />
+    <button>Search</button>
+  </form>
+</div>
+```
+
+> We used `useState` to read and save that we can write on the input.
+
+```typescript
+const [term, setTerm] = useState('');
+```
+
+The `form` receive one function called `onSubmit` this function will prevents our `form` to reload the page as well the form called a method `dispatch` this method called our `actionCreators` to search repositories
+
+> This function needed to be typed and we used type listed on html into the tag form likewise `<form onSubmit={onSubmit}>`
+
+```typescript
+const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    dispatch(actionCreators.searchRepositories(term));
+  };
+<form onSubmit={onSubmit}>
+ ...
+
+```
