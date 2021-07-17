@@ -3,19 +3,39 @@ interface RepositoriesState {
   error: string | null;
   data: string[];
 }
-interface Action {
-  type: string;
-  payload?: any;
+
+interface SearchRepositoriesAction {
+  type: 'search_repositories';
+}
+
+interface SearchRepositoriesSuccessAction {
+  type: 'search_repositories_success';
+  payload: string[];
+}
+
+interface SearchRepositoriesErrorAction {
+  type: 'search_repositories_error';
+  payload: string;
 }
 
 const reducer = (
   state: RepositoriesState,
-  action: Action,
+  action:
+    | SearchRepositoriesAction
+    | SearchRepositoriesSuccessAction
+    | SearchRepositoriesErrorAction,
 ): RepositoriesState => {
+  // if (action.type === 'search_repositories_success') {
+  //   //100% certainty that 'action' satisfies the
+  //   // SearchRepositoriesSuccessAction interface
+  //   action.payload;
+  // }
+
   switch (action.type) {
     case 'search_repositories':
       return { loading: true, error: null, data: [] };
     case 'search_repositories_success':
+      // 100% certain tha action is SearchRepositoriesSuccessAction
       return { loading: false, error: null, data: action.payload };
 
     case 'search_repositories_error':
